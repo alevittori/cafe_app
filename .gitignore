@@ -1,0 +1,16 @@
+# Entornos virtuales (OBLIGATORIO)
+.venv/
+venv/
+env/
+
+# Caché de Python (OBLIGATORIO)
+__pycache__/
+*.pyc
+
+# Configuraciones de editores o sistemas
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración con contraseñas o claves secretas (si llegas a crearlos)
+.env
