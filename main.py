@@ -4,6 +4,7 @@ from decimal import Decimal
 from fastapi import FastAPI, HTTPException, status
 
 from models.cafe import Cafe
+from database.database import engine
 
 app=FastAPI()
 # Lista con los 10 cafés para tu menú
