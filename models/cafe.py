@@ -2,6 +2,39 @@ from decimal import Decimal
 from sqlmodel import Field, SQLModel
 # from pydantic import BaseModel, Field
 
+# La documentación oficial de SQLModel recomienda estructurar tu archivo models/cafe.py dividiendo el modelo en tres partes utilizando la herencia de la siguiente manera:
+
+# 1. MODELO BASE: Campos comunes que comparte todo el mundo
+class CafeBase(SQLModel):
+    name: str
+    description: str
+    price: Decimal = Field(..., max_digits=10, decimal_places=2, ge=0)
+    available: bool = True
+
+# 2. MODELO DE ENTRADA (Para el POST): No tiene ID porque aún no se genera
+class CafeCreate(CafeBase):
+    pass  # Hereda todo lo de CafeBase tal cual
+
+# 3. MODELO DE TABLA (Base de Datos): Tiene el ID y controla la persistencia
+class Cafe(CafeBase, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 """ class Cafe(BaseModel):
     id:int 
@@ -11,12 +44,6 @@ from sqlmodel import Field, SQLModel
     is_enabled: bool = True
      """
     
-class Cafe(SQLModel, table= True):
-    id: int | None = Field(default=None, primary_key = True)
-    name:  str 
-    description:str 
-    price: Decimal = Field(..., max_digits=10, decimal_places=2, ge=0)
-    available: bool= True
     
 """ Tutorial
 REcurso

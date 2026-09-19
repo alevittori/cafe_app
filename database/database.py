@@ -12,4 +12,4 @@ sqlite_url = f"sqlite:///{sqlite_file_name}"
 # motor
 engine = create_engine(sqlite_url)
 
-SQLModel.metadata.create_all(engine)
+# SQLModel.metadata.create_all(engine)
